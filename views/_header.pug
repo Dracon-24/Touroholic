@@ -1,0 +1,14 @@
+header.header
+  nav.nav.nav--tours
+    a.nav__el(href='/') All tours
+  a.header__logo(href='/' aria-label='Touroholic home')
+    img(src='/img/touroholic-light.svg' alt='Touroholic logo')
+  nav.nav.nav--user
+    if user
+      button.nav__el.nav__el--logout(type='button') Log out
+      a.nav__el(href='/me')
+        img.nav__user-img(src=`/img/users/${user.photo}` alt=`Photo of ${user.name}`)
+        span= user.name.split(' ')[0]
+    else
+      a.nav__el(href='/login') Log in
+      a.nav__el.nav__el--cta(href='/signup.html') Sign up

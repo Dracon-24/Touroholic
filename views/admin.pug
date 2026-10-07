@@ -1,0 +1,25 @@
+extends base
+
+block append head
+  script(src='/js/admin.js' defer)
+
+block content
+  main.main
+    .review-page#admin-page(data-resource=resource)
+      nav.review-page__nav(aria-label='Administration')
+        a.btn-text(href='/me') My account
+        each item in ['tours', 'users', 'reviews', 'bookings']
+          a.btn-text(href=`/admin/${item}` aria-current=resource === item ? 'page' : undefined)= `Manage ${item}`
+      h1.heading-secondary.ma-bt-md= `Manage ${resource}`
+      p.review-page__status#admin-status(role='status' aria-live='polite') Loading...
+      .review-page__actions.ma-bt-md
+        button.btn.btn--green.btn--small#admin-new(type='button' hidden) Add tour
+        button.btn.btn--white.btn--small#admin-reload(type='button') Refresh
+      .review-page__list#admin-list
+      section.review-page__editor#admin-editor(hidden)
+        h2.heading-secondary.ma-bt-md#admin-editor-title Edit
+        form.form#admin-form
+          #admin-fields
+          .review-page__actions
+            button.btn.btn--green.btn--small#admin-save(type='submit') Save changes
+            button.btn.btn--white.btn--small#admin-cancel(type='button') Cancel

@@ -1,0 +1,24 @@
+extends base
+
+block content
+  main.main
+    .review-page
+      nav.review-page__nav
+        a.btn-text(href='/me') Settings
+        a.btn-text(href='/my-tours') My bookings
+        a.btn-text(href='/my-reviews.html') My reviews
+      h1.heading-secondary.ma-bt-md Booking history
+      p.review-page__status New bookings are demo reservations. No payment is collected.
+      .review-page__list
+        each booking in bookings
+          article.review-page__card
+            h2.heading-secondary= booking.tour ? booking.tour.name : 'Tour unavailable'
+            p.review-page__text= `Reserved on ${booking.createdAt.toLocaleDateString('en-US')}`
+            p.review-page__text= `Tour price: $${booking.price}`
+            p.review-page__rating= booking.demo || !booking.paid ? 'Demo reservation — no payment collected' : 'Previously recorded as paid'
+            if booking.tour && booking.tour.slug
+              a.btn-text(href=`/tour/${booking.tour.slug}`) View tour
+        else
+          .empty-state
+            p You have no bookings yet.
+            a.btn.btn--green(href='/') Browse tours

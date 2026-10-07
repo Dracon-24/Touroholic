@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Touroholic | My reviews</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="icon" type="image/svg+xml" href="/img/touroholic-icon.svg" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700" />
+    <script src="/js/reviews.js" defer></script>
+    <script src="/js/dist/index.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav nav--tours">
+        <a class="nav__el" href="/">All tours</a>
+      </nav>
+      <div class="header__logo">
+        <img src="/img/touroholic-light.svg" alt="Touroholic logo" />
+      </div>
+      <nav class="nav nav--user">
+        <a class="nav__el" href="/me">My account</a>
+        <button class="nav__el nav__el--logout" type="button">Log out</button>
+      </nav>
+    </header>
+    <main class="main">
+      <div class="review-page">
+        <nav class="review-page__nav" aria-label="Account navigation">
+          <a class="btn-text" href="/me">Settings</a>
+          <a class="btn-text" href="/my-tours">My bookings</a>
+          <a class="btn-text" href="/my-reviews.html" aria-current="page">My reviews</a>
+        </nav>
+        <h1 class="heading-secondary ma-bt-md">My reviews</h1>
+        <p class="review-page__status" id="reviews-status" role="status" aria-live="polite">Loading your reviews...</p>
+        <button class="btn btn--green btn--small" id="reviews-retry" type="button" hidden>Try again</button>
+        <section id="reviews-list" class="review-page__list" aria-label="Your reviews"></section>
+        <section class="review-page__editor" id="review-editor" hidden>
+          <h2 class="heading-secondary ma-bt-md" id="review-editor-title">Write a review</h2>
+          <form id="review-form" class="form">
+            <div class="form__group">
+              <label class="form__label" for="review-tour">Tour</label>
+              <select id="review-tour" class="form__input" name="tour" required></select>
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="review-rating">Rating</label>
+              <select id="review-rating" class="form__input" name="rating" required>
+                <option value="">Choose a rating</option>
+                <option value="5">5 — Excellent</option>
+                <option value="4">4 — Very good</option>
+                <option value="3">3 — Good</option>
+                <option value="2">2 — Fair</option>
+                <option value="1">1 — Poor</option>
+              </select>
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="review-text">Your review</label>
+              <textarea id="review-text" class="form__input" name="review" rows="5" required></textarea>
+            </div>
+            <div class="review-page__actions">
+              <button class="btn btn--green btn--small" type="submit" id="review-save">Save review</button>
+              <button class="btn btn--white btn--small" type="button" id="review-cancel" hidden>Cancel edit</button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="footer__logo">
+        <img src="/img/touroholic-dark.svg" alt="Touroholic logo" />
+      </div>
+      <ul class="footer__nav">
+        <li><a href="/about">About us</a></li>
+        <li><a href="/about#apps">Download apps</a></li>
+        <li><a href="/about#guides">Become a guide</a></li>
+        <li><a href="/about#careers">Careers</a></li>
+        <li><a href="/about#contact">Contact</a></li>
+      </ul>
+    </footer>
+  </body>
+</html>

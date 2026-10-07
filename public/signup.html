@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Touroholic | Create your account</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="icon" type="image/svg+xml" href="/img/touroholic-icon.svg" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700" />
+    <script src="/js/signup.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav nav--tours">
+        <a class="nav__el" href="/">All tours</a>
+      </nav>
+      <div class="header__logo">
+        <img src="/img/touroholic-light.svg" alt="Touroholic logo" />
+      </div>
+      <nav class="nav nav--user">
+        <a class="nav__el" href="/login">Log in</a>
+        <a class="nav__el nav__el--cta" href="/signup.html" aria-current="page">Sign up</a>
+      </nav>
+    </header>
+    <main class="main">
+      <div class="login-form">
+        <h1 class="heading-secondary ma-bt-lg">Create your account</h1>
+        <form class="form form--signup" action="/api/v1/users/signup" method="post">
+          <div class="form__group">
+            <label class="form__label" for="name">Name</label>
+            <input class="form__input" id="name" name="name" type="text" autocomplete="name" required />
+          </div>
+          <div class="form__group">
+            <label class="form__label" for="email">Email address</label>
+            <input class="form__input" id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required />
+          </div>
+          <div class="form__group">
+            <label class="form__label" for="password">Password</label>
+            <input class="form__input" id="password" name="password" type="password" placeholder="••••••••" autocomplete="new-password" minlength="8" required />
+          </div>
+          <div class="form__group ma-bt-md">
+            <label class="form__label" for="password-confirm">Confirm password</label>
+            <input class="form__input" id="password-confirm" name="passwordConfirm" type="password" placeholder="••••••••" autocomplete="new-password" minlength="8" required />
+          </div>
+          <div class="form__group">
+            <button class="btn btn--green" type="submit">Sign up</button>
+          </div>
+          <p class="form__label" role="status" aria-live="polite" id="signup-status"></p>
+          <a class="btn-text" href="/login">Already have an account? Log in</a>
+        </form>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="footer__logo">
+        <img src="/img/touroholic-dark.svg" alt="Touroholic logo" />
+      </div>
+      <ul class="footer__nav">
+        <li><a href="/about">About us</a></li>
+        <li><a href="/about#apps">Download apps</a></li>
+        <li><a href="/about#guides">Become a guide</a></li>
+        <li><a href="/about#careers">Careers</a></li>
+        <li><a href="/about#contact">Contact</a></li>
+      </ul>
+    </footer>
+  </body>
+</html>
